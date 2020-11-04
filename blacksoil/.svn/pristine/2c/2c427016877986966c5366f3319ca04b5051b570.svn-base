@@ -1,0 +1,29 @@
+package com.ali.retail.common.lock;
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class ReentrantLockUtil {
+
+    private static final Lock NO_FAIR_Lock = new ReentrantLock();
+    private static final Lock FAIR_Lock = new ReentrantLock(true);
+
+    public static Condition getNewCondition(Lock lock) {
+        return lock.newCondition();
+    }
+
+
+    public static void main(String[] args) {
+        try {
+            Condition condition = NO_FAIR_Lock.newCondition();
+            NO_FAIR_Lock.tryLock();
+            condition.await();
+            condition.await(1, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+}

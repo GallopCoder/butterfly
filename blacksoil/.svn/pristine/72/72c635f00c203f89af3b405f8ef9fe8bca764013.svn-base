@@ -1,0 +1,96 @@
+package com.ali.retail.utils.duplicate;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.datacentor.dup.DDAlert;
+import com.datacentor.dup.DupDetectService;
+import com.datacentor.dup.DupDetector;
+
+public class DDrPool {
+	//max 最大DupDetector的数量
+	int max;
+	DDAlert ddalert;
+	volatile int num;
+	volatile List<DupDetector> list;
+
+	public DDrPool(int max,DDAlert ddalert){
+		this.max=max;
+		this.ddalert=ddalert;
+		list=new ArrayList<DupDetector>(max);
+		num=0;
+	}
+	
+	
+	public  void destroy() {
+		for(DupDetector ddr:list){
+			ddr.release();
+		}
+		list.clear();
+		num=0;
+	}
+
+
+
+
+	public synchronized void release(DupDetector dd) {
+		 list.add(dd);
+	}
+
+
+
+	public  DupDetector get() throws Exception {
+		while(true){
+			
+			synchronized (this){
+				if(list.size()>0){
+					
+					DupDetector ddr=list.get(0);
+					list.remove(0);
+					return ddr;
+				}
+			}
+			if(num<max){
+				num++;
+				return DupDetectService.createDetector(ddalert);
+			}
+			
+			Thread.sleep(10);
+			System.out.println("the number of DupDetector reach the max, sleep 1s. ");
+		}
+	}
+
+	
+	/**
+	 * @param args
+	 * @throws Exception 
+	 */
+	public static void main(String[] args) throws Exception {
+
+		//系统启动时的初始化
+		//String ip="192.168.1.8";
+		String ip="127.0.0.1";
+		DupDetectService.initialise(ip, 7010);
+		DDrPool pool=new DDrPool(6,new DDAlert());
+		
+		for(int i=0;i<10;i++){
+			//程序运行过程中调用，get和release一起调用， 用try确保释放
+			System.out.println(i);
+			DupDetector dd=pool.get();
+			try{
+//				dd.dupCheck(md5v, mode);
+			}catch(Exception e){}
+			finally{
+				pool.release(dd);	
+			}	
+		}
+
+		//系统退出时，销毁pool
+		pool.destroy();
+	}
+
+
+
+
+	
+}

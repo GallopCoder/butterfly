@@ -1,0 +1,94 @@
+
+## java定时任务实现(Timer与TimerTask)
+###Timer与TimerTask结合，实现定时任务： 
+    java.util.Timer工具类中提供多种定时任务的调度方式，如：
+       scheduleAtFixedRate(TimerTask task, long delay, long period)、schedule(TimerTask task, long delay, long period)等，
+       最终都是使用其内部的sched(TimerTask task, long time, long period)方法实现任务调度，
+       按time时间点、period时间间隔来执行TimerTask接口中的run方法。
+###Timer内部实现
+    Timer内部自己维护了一个TaskQueue,他其实是一个下标从1开始的TimerTask类型的数组，
+        (我们自定义的任务,TimerTask最终都会放在这个TaskQueue里面)
+    主要执行逻辑在mainLoop()方法中：(Timer持有timer.queue和task的锁,保证任务的正确执行)
+       根据系统当前时间与设定的time进行比较：taskFired = (executionTime<=currentTime)
+         注: if (task.period == 0) { // Non-repeating, remove: 只执行一次的任务
+               queue.removeMin();
+               task.state = TimerTask.EXECUTED;
+           } else { // Repeating task, reschedule: 需要重复执行的任务
+               queue.rescheduleMin(
+               task.period<0 ? currentTime   - task.period : executionTime + task.period);//会刷新任务下次执行的时间
+           }
+       若时间不对应，则会让queue进行长时间wait，代码如下：
+        if (!taskFired) // Task hasn't yet fired; wait
+             queue.wait(executionTime - currentTime);
+       若时间相等，则执行TimerTask的run方法(也就是我们的定义的功能)：
+        if (taskFired)  // Task fired; run it, holding no locks
+            task.run();
+            
+            
+## JVM锁机制
+###加锁(同步)：显式加锁(有明确的monitorenter和moniterexit)和隐式加锁(ACC_SYNCHRONIZED)
+    1.synchronized (对象)，反编译结果(显式加锁)：
+        ...
+        Code:
+        ...
+        monitorenter //注意此处，进入同步方法
+            ...加锁的代码
+        monitorexit //注意此处，退出同步方法
+        ...
+        monitorexit //注意此处，退出同步方法(程序出现异常时，执行释放monitor的指令)
+        ...
+        return
+        ...
+      程序会在mointorenter尝试获取锁的持有权，获取成功，则更新锁对象monitor(持有线程，持有次数)；
+    2.synchronized修饰方法(实例方法: this; 静态方法: class对象)，反编译结果(隐式加锁)：
+        ...
+        flags: ACC_PUBLIC, ACC_SYNCHRONIZED
+        Code:
+        ...
+        return
+        ...
+      每个方法在执行时，都会从方法常量池中的方法表结构中，检查方法中的 ACC_SYNCHRONIZED 访问标志，区分一个方法是否同步方法(若被标志，则对整个方法进行1操作)；
+    注：在同步代码执行期间，执行线程持有了monitor，其他任何线程都无法再获得同一个monitor。
+        如果一个同步方法执行期间抛 出了异常，并且在方法内部无法处理此异常，那这个同步方法所持有的monitor将在异常抛到同步方法之外时自动释放。
+
+###JVM中的对象
+    在JVM中，对象在内存中的布局分为三块区域：对象头、实例数据和对齐填充：
+    1.实例变量：存放类的属性数据信息，包括父类的属性信息，如果是数组的实例部分还包括数组的长度，这部分内存按4字节对齐。
+    2.填充数据：由于虚拟机要求对象起始地址必须是8字节的整数倍。填充数据不是必须存在的，仅仅是为了字节对齐
+    3.对象头：一般而言，synchronized使用的锁对象是存储在Java对象头里的，jvm中采用2个字来存储对象头(如果对象是数组则会分配3个字，多出来的1个字记录的是数组长度)，
+        其主要结构是由Mark Word 和 Class Metadata Address 组成：
+         Mark Word：存储对象的hashCode、锁信息或分代年龄或GC标志等信息
+         Class Metadata Address：类型指针指向对象的类元数据，JVM通过这个指针确定该对象是哪个类的实例。
+    
+###JVM之ObjectMonitor、ObjectWaiter
+    每个对象都存在着一个monitor与之关联，对象与其monitor之间的关系有存在多种实现方式，如monitor可以与对象一起创建销毁或当线程试图获取对象锁时自动生成，
+    但当一个monitor被某个线程持有后，它便处于锁定状态(直到正在执行线程执行完毕,它开始重新竞争锁的持有权,也将有机会持有 monitor)。在Java虚拟机(HotSpot)中，monitor是由ObjectMonitor实现的，其主要数据结构如下
+    （位于HotSpot虚拟机源码ObjectMonitor.hpp文件，C++实现的）:
+      ObjectMonitor() {
+          _header       = NULL;
+          _count        = 0; //计数器(持有线程进入计数,如重入锁)
+          _waiters      = 0,
+          _recursions   = 0;
+          _object       = NULL;
+          _owner        = NULL; //持有ObjectMonitor对象的线程
+          _WaitSet      = NULL; //处于wait状态的线程(ObjectWaiter)，会被加入到_WaitSet(等待notify或notifyAll)
+          _WaitSetLock  = 0 ;
+          _Responsible  = NULL ;
+          _succ         = NULL ;
+          _cxq          = NULL ;
+          FreeNext      = NULL ;
+          _EntryList    = NULL ; //处于等待锁block状态的线程(ObjectWaiter)，会被加入到该列表
+          _SpinFreq     = 0 ;
+          _SpinClock    = 0 ;
+          OwnerIsThread = 0 ;
+        }
+      注：每个等待锁的线程都会被封装成ObjectWaiter对象
+      
+###JVM锁获取
+    1.当多个线程同时访问一段同步代码时,首先会进入 _EntryList 集合;
+    2.当线程获取到对象的monitor后,把monitor中的owner变量设置为当前线程,同时monitor中的计数器count加1;
+    3.若线程调用wait()方法,将释放当前持有的monitor,owner变量恢复为null,count自减1,同时该线程进入_WaitSet集合中等待被唤醒;
+    4.若当前线程执行完毕,也将释放monitor(锁)并复位count变量的值,以便其他线程进入获取monitor(锁).
+   
+   
+   

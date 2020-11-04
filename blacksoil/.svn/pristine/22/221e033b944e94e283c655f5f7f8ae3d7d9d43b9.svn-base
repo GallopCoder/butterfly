@@ -1,0 +1,4 @@
+jdbc.mysql.url=jdbc:mysql://192.168.0.99:3306/ams?characterEncoding=utf8
+jdbc.mysql.username=dev
+jdbc.mysql.password=Dev_2018
+server.port=8010

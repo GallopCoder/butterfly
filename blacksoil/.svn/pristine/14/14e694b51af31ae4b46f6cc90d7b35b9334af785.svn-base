@@ -1,0 +1,29 @@
+package com.ali.retail.contorller;
+
+import com.ali.retail.service.JSoupService;
+import org.jsoup.nodes.Document;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import java.io.IOException;
+import java.util.List;
+
+@RestController
+@RequestMapping("api/v1/jSoup")
+public class JSoupController {
+
+    @Resource
+    private JSoupService jSoupService;
+
+    @PostMapping("/baidu")
+    public Document baiduSearch(@RequestParam String url) throws IOException {
+        return jSoupService.baidu(url);
+    }
+
+    @PostMapping("/tencent")
+    public List<Document> tencentSearch() {
+        String strUrl = "http://www.qq.com";
+        return jSoupService.tencent(strUrl);
+    }
+
+}

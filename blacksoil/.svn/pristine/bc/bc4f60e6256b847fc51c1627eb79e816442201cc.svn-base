@@ -1,0 +1,30 @@
+﻿# 服务端的IP地址
+#system.net.sock.ip = 192.168.0.178
+#system.net.sock.ip = 192.168.0.250
+system.net.sock.ip = 127.0.0.1
+#system.net.sock.ip = isearch.hither.com.cn
+#system.net.sock.ip = 192.168.1.8
+
+# 服务端的检索监听端口
+system.net.sock.query.port = 7030
+system.net.sock.query.pool.enable=false
+system.net.sock.query.pool.maxActive=4
+system.net.sock.query.pool.maxIdle=0
+system.net.sock.query.pool.maxWait.ms=1000
+system.net.sock.query.pool.idleRemoveDelay.second=600
+system.net.sock.query.pool.pulse.second=30
+
+
+socket.timeout.second=3000
+
+article.textfield.maxlength.K=200
+
+
+#SpecialIndex.conf move here
+special.index.fieldnames = TX
+special.index.TX = [TI][\r\n\t\r\n\t\t\r\n][TX]
+
+#1转string只能是“财经金融”，“财经金融”，“金融”，“财经”都可以转换成1
+#enum.CC=1:财经金融|金融|财经,2:科技互联
+#enum.BY=1:财经金融|金融|财经,2:科技互联
+#enum.BK=1:财经金融|金融|财经,2:科技互联

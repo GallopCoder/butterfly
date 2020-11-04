@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="789fa4fa-92c1-4996-944e-0fb193bd600f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ali/retail/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ali/retail/BlackSoilApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ali/retail/BlackSoilApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ali/retail/contorller/JSoupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ali/retail/contorller/JSoupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/BlackSoilApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/BlackSoilApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/contorller/JSoupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/contorller/JSoupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/prism/MysqlUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/prism/MysqlUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/prism/PrismTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/prism/PrismTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/prism/PrismUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/prism/PrismUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/prism_r/PrismUtil_r.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/prism_r/PrismUtil_r.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/service/JSoupService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/service/JSoupService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ali/retail/utils/ClassUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ali/retail/utils/ClassUtil.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\apache-maven-3.6.3\repository" />
+        <option name="mavenHome" value="D:/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="uat" />
+      </list>
+    </option>
+    <option name="disabledProfiles">
+      <list>
+        <option value="nexus" />
+        <option value="pro" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YnL6sRao4s63Rtxz4FGmfRNZ5b" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\_workspace_intellij\personal\blacksoil\src\pic" />
+      <recent name="D:\_workspace_intellij\personal\blacksoil\src\main\resources\uat" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ali.retail" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ali.retail.utils" />
+      <recent name="com.ali.retail.bean" />
+      <recent name="com.ali.retail.prism" />
+      <recent name="com.ali.retail.common.schedule" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\_workspace_intellij\personal\blacksoil\src\main\java\com\ali\retail" />
+      <recent name="D:\_workspace_intellij\personal\blacksoil\src\pic" />
+      <recent name="D:\_workspace_intellij\personal\blacksoil\conf" />
+      <recent name="D:\_workspace_intellij\personal\blacksoil\src\main\java\com\ali\retail\utils" />
+      <recent name="D:\_workspace_intellij\personal\blacksoil\src\main\resources\pro" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BlackSoil">
+    <configuration name="DetectTask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ali.retail.common.forkjoin.DetectTask" />
+      <module name="blacksoil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ali.retail.common.forkjoin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DetectUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ali.retail.prism.DetectUtil" />
+      <module name="blacksoil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ali.retail.prism.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StackTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ali.retail.common.jvm.StackTest" />
+      <module name="blacksoil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ali.retail.common.jvm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SumTask" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ali.retail.forkjoin.SumTask" />
+      <module name="blacksoil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ali.retail.common.forkjoin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlackSoil" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="blacksoil" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ali.retail.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ali.retail.BlackSoilApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.DetectUtil" />
+      <item itemvalue="Application.StackTest" />
+      <item itemvalue="Application.SumTask" />
+      <item itemvalue="Application.DetectTask" />
+      <item itemvalue="Spring Boot.BlackSoil" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BlackSoil" />
+        <item itemvalue="Application.DetectTask" />
+        <item itemvalue="Application.SumTask" />
+        <item itemvalue="Application.StackTest" />
+        <item itemvalue="Application.DetectUtil" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration useDefault="false">D:\_env_develop\TortoiseSVN</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\_workspace_intellij\personal\blacksoil" />
+          <option name="myCopyRoot" value="D:\_workspace_intellij\personal\blacksoil" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\_workspace_intellij\personal\blacksoil" />
+          <option name="myCopyRoot" value="D:\_workspace_intellij\personal\blacksoil" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="789fa4fa-92c1-4996-944e-0fb193bd600f" name="Default Changelist" comment="" />
+      <created>1583566828394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583566828394</updated>
+      <workItem from="1583566830055" duration="402000" />
+      <workItem from="1583567266343" duration="984000" />
+      <workItem from="1583573249143" duration="777000" />
+      <workItem from="1583574044503" duration="935000" />
+      <workItem from="1583575466004" duration="20000" />
+      <workItem from="1583575589622" duration="218000" />
+      <workItem from="1583979191611" duration="11287000" />
+      <workItem from="1584080665229" duration="30393000" />
+      <workItem from="1584321600451" duration="33176000" />
+      <workItem from="1584508599967" duration="597000" />
+      <workItem from="1584510381186" duration="55282000" />
+      <workItem from="1584926122759" duration="6833000" />
+      <workItem from="1585041495539" duration="4664000" />
+      <workItem from="1585104811302" duration="16274000" />
+      <workItem from="1585373266290" duration="150000" />
+      <workItem from="1585374171553" duration="5423000" />
+      <workItem from="1585383521486" duration="3121000" />
+      <workItem from="1585390839752" duration="599000" />
+      <workItem from="1585531257942" duration="9835000" />
+      <workItem from="1585913720636" duration="1120000" />
+      <workItem from="1586222432755" duration="434000" />
+      <workItem from="1586223043738" duration="52000" />
+      <workItem from="1586223114633" duration="443000" />
+      <workItem from="1586251069659" duration="26591000" />
+      <workItem from="1586518753127" duration="10380000" />
+      <workItem from="1586773061509" duration="1846000" />
+      <workItem from="1586860985355" duration="614000" />
+      <workItem from="1587364624954" duration="15572000" />
+      <workItem from="1587525161188" duration="154000" />
+      <workItem from="1587545572166" duration="6128000" />
+      <workItem from="1587626857240" duration="7689000" />
+      <workItem from="1587885243444" duration="467000" />
+      <workItem from="1587975678263" duration="606000" />
+      <workItem from="1587985585420" duration="573000" />
+      <workItem from="1588039078397" duration="19735000" />
+      <workItem from="1588227208365" duration="26134000" />
+      <workItem from="1588916530553" duration="57000" />
+      <workItem from="1588917088665" duration="234000" />
+      <workItem from="1588920650894" duration="1177000" />
+      <workItem from="1588926492571" duration="6863000" />
+      <workItem from="1589160541766" duration="1966000" />
+      <workItem from="1589185401278" duration="3931000" />
+      <workItem from="1589191914925" duration="6723000" />
+      <workItem from="1589270366085" duration="53285000" />
+      <workItem from="1589938994145" duration="243000" />
+      <workItem from="1589939255468" duration="21000" />
+      <workItem from="1590474202357" duration="7255000" />
+      <workItem from="1590571987129" duration="1563000" />
+      <workItem from="1590576667384" duration="501000" />
+      <workItem from="1590577324433" duration="525000" />
+      <workItem from="1590636033534" duration="2014000" />
+      <workItem from="1590980417140" duration="463000" />
+      <workItem from="1591166882464" duration="619000" />
+      <workItem from="1591168246124" duration="537000" />
+      <workItem from="1591173023361" duration="1274000" />
+      <workItem from="1591176064530" duration="807000" />
+      <workItem from="1591690405805" duration="604000" />
+      <workItem from="1591776189729" duration="554000" />
+      <workItem from="1591782895351" duration="965000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="312" y="87" key="#Notifications" timestamp="1584495906421">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="312" y="87" key="#Notifications/0.0.1440.860@0.0.1440.860" timestamp="1584495906421" />
+    <state x="312" y="87" key="#Project_Structure" timestamp="1583577979907">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="312" y="87" key="#Project_Structure/0.0.1440.860@0.0.1440.860" timestamp="1583577979907" />
+    <state x="174" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588237469584">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="174" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.860@0.0.1440.860" timestamp="1588237469584" />
+    <state x="469" y="298" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1585383420166">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="469" y="298" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1440.860@0.0.1440.860" timestamp="1585383420166" />
+    <state x="525" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1589535140572">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="525" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1440.860@0.0.1440.860" timestamp="1589535140572" />
+    <state x="449" y="212" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584171613259">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="449" y="212" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1440.860@0.0.1440.860" timestamp="1584171613258" />
+    <state x="318" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1589445720381">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="318" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.860@0.0.1440.860" timestamp="1589445720381" />
+    <state x="499" y="308" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1589445722054">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="499" y="308" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1440.860@0.0.1440.860" timestamp="1589445722054" />
+    <state x="450" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586506379829">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="450" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860@0.0.1440.860" timestamp="1586506379829" />
+    <state x="450" y="175" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1589533282059">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="450" y="175" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1440.860@0.0.1440.860" timestamp="1589533282059" />
+    <state width="503" height="438" key="DebuggerActiveHint" timestamp="1588822246395">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="503" height="438" key="DebuggerActiveHint/0.0.1440.860@0.0.1440.860" timestamp="1588822246395" />
+    <state x="474" y="143" key="DetectedRootsChooserDialog" timestamp="1584172163131">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="474" y="143" key="DetectedRootsChooserDialog/0.0.1440.860@0.0.1440.860" timestamp="1584172163131" />
+    <state x="500" y="184" key="FileChooserDialogImpl" timestamp="1589867482911">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="500" y="184" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1589867482911" />
+    <state width="1396" height="216" key="GridCell.Tab.0.bottom" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.0.bottom/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.0.center" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.0.center/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.0.left" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.0.left/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.0.right" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.0.right/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.1.bottom" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.1.bottom/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.1.center" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.1.center/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.1.left" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.1.left/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="216" key="GridCell.Tab.1.right" timestamp="1589938840114">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="216" key="GridCell.Tab.1.right/0.0.1440.860@0.0.1440.860" timestamp="1589938840114" />
+    <state width="1396" height="39" key="GridCell.Tab.2.bottom" timestamp="1589938840093">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="39" key="GridCell.Tab.2.bottom/0.0.1440.860@0.0.1440.860" timestamp="1589938840093" />
+    <state width="1396" height="39" key="GridCell.Tab.2.center" timestamp="1589938840093">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="39" key="GridCell.Tab.2.center/0.0.1440.860@0.0.1440.860" timestamp="1589938840093" />
+    <state width="1396" height="39" key="GridCell.Tab.2.left" timestamp="1589938840093">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="39" key="GridCell.Tab.2.left/0.0.1440.860@0.0.1440.860" timestamp="1589938840093" />
+    <state width="1396" height="39" key="GridCell.Tab.2.right" timestamp="1589938840093">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="1396" height="39" key="GridCell.Tab.2.right/0.0.1440.860@0.0.1440.860" timestamp="1589938840093" />
+    <state x="534" y="363" key="ReplaceDuplicatesPrompt" timestamp="1589535774683">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="534" y="363" key="ReplaceDuplicatesPrompt/0.0.1440.860@0.0.1440.860" timestamp="1589535774683" />
+    <state x="200" y="3" key="SettingsEditor" timestamp="1588920777464">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="200" y="3" key="SettingsEditor/0.0.1440.860@0.0.1440.860" timestamp="1588920777464" />
+    <state x="441" y="160" width="564" height="524" key="StructurePopup" timestamp="1589445285184">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="441" y="160" width="564" height="524" key="StructurePopup/0.0.1440.860@0.0.1440.860" timestamp="1589445285184" />
+    <state width="728" height="438" key="XDebugger.FullValuePopup" timestamp="1584415729778">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state width="728" height="438" key="XDebugger.FullValuePopup/0.0.1440.860@0.0.1440.860" timestamp="1584415729778" />
+    <state x="405" y="252" key="com.intellij.ide.util.TipDialog" timestamp="1583573252419">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="405" y="252" key="com.intellij.ide.util.TipDialog/0.0.1440.860@0.0.1440.860" timestamp="1583573252419" />
+    <state x="776" y="177" width="540" height="504" key="extract.method.dialog" timestamp="1589535802015">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="776" y="177" width="540" height="504" key="extract.method.dialog/0.0.1440.860@0.0.1440.860" timestamp="1589535802015" />
+    <state x="90" y="78" key="new project wizard" timestamp="1586508060964">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="90" y="78" key="new project wizard/0.0.1440.860@0.0.1440.860" timestamp="1586508060964" />
+    <state x="421" y="56" key="refactoring.ChangeSignatureDialog" timestamp="1589533031115">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="421" y="56" key="refactoring.ChangeSignatureDialog/0.0.1440.860@0.0.1440.860" timestamp="1589533031115" />
+    <state x="376" y="190" key="run.anything.popup" timestamp="1585379362345">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="376" y="190" key="run.anything.popup/0.0.1440.860@0.0.1440.860" timestamp="1585379362345" />
+    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1589189201234">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="383" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1440.860@0.0.1440.860" timestamp="1589189201234" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/BinaryJedis.class</url>
+          <line>103</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>blacksoil</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

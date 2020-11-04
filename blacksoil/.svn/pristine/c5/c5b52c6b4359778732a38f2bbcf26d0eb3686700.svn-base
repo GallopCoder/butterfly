@@ -1,0 +1,67 @@
+package com.ali.retail.utils.duplicate;
+
+import com.ali.retail.bean.DuplicateEntity;
+import com.datacentor.dup.DDAlert;
+import com.datacentor.dup.DID;
+import com.datacentor.dup.DupDetectService;
+import com.datacentor.dup.DupDetector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * @author izh_zxh
+ */
+public class DupDetectUtil {
+    private static final Logger logger = LoggerFactory.getLogger(DupDetectUtil.class);
+
+    /**
+     *
+     * @param ip   ip of duplicate server
+     * @param port  port of duplicate server
+     * @param var0  judge condition
+     * @return
+     */
+    public static DuplicateEntity dupDetect(String ip, int port, String var0){
+        DupDetector dd = null;
+        DuplicateEntity entity = new DuplicateEntity();
+        try{
+            // 初始化
+            DupDetectService.initialise(ip, port);
+            //建立去重 长链接
+            dd = DupDetectService.createDetector(new DDAlert());
+            // mid5的构造方式
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            //获取mid并生成md5值
+            byte bb[]=md.digest(var0.getBytes());
+            //用该md5值去调用该服务
+            DID did=dd.dupCheck(bb,DupDetector.MODE_ALL_ID);
+
+            entity.setId(did.getId());
+            // 保存改id是否在库中已存在
+            entity.setUnique(did.isNew());
+            entity.setValue(var0);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        } finally {
+            if (dd != null) {
+                dd.release();
+            }
+        }
+        return entity;
+    }
+
+    public static void main(String[] args) {
+        String [] var0 = {"asdadawwe","ssdfxvcvs","vsdfeqwqbhv","xcvsdwdzxc","gssjhkbmmb","tyurwqersxv","vbhghtwzzx","ssdfxvcvs","vsdfeqwqbhv","xcvsdwdzxc","gssjhkbmmb"};
+        List<String> strings = Arrays.asList(var0);
+        for (String string : strings) {
+            long start = System.currentTimeMillis();
+            DuplicateEntity entity = dupDetect("192.168.0.2", 7010, string);
+            System.out.println("[time:" + (System.currentTimeMillis() - start)  + "ms]  " + entity);
+        }
+    }
+
+}

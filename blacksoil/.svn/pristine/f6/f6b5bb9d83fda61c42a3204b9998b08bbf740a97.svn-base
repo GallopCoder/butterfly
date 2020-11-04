@@ -1,0 +1,16 @@
+package com.ali.retail.common.queue;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.SynchronousQueue;
+
+public class LinkTest {
+
+    public void linkTest() {
+        List<String> list = new LinkedList<>();
+    }
+
+    public void SynchronousQueue() {
+        SynchronousQueue<String> synchronousQueue = new SynchronousQueue<>();
+    }
+}

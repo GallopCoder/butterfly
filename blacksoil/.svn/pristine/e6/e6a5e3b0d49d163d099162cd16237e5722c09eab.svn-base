@@ -1,0 +1,216 @@
+package com.ali.retail.utils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class FileUtil {
+
+	private static final Logger logger = LoggerFactory.getLogger(FileUtil.class);
+
+	public static void write2File(String path,String content,String encode,boolean append) throws IOException{
+		String fileName = path.substring(path.lastIndexOf(File.separator)+1);
+		String filePath = path.substring(0,path.lastIndexOf(File.separator));
+		String tempFileName = "_"+fileName;
+		File file = new File(append?path:(filePath+File.separator+tempFileName));
+		file.getParentFile().mkdirs();
+		if(!file.exists()){
+			file.createNewFile();
+		}
+		BufferedWriter bw = null;
+		try{
+			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,append),encode));
+			bw.append(content).append("\n");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(null!=bw){
+				bw.close();
+			}
+		}
+		if(file.exists()&&!append){
+			File destFile = new File(path);
+			if(destFile.exists()){
+				try{
+					destFile.delete();
+				}catch(Throwable e){
+					try {
+						Thread.sleep(10000);
+					} catch (InterruptedException e1) {
+						e.printStackTrace();
+					}
+					try{
+						destFile.delete();
+					}catch(Throwable e1){
+						e.printStackTrace();
+					}
+				}
+			}
+			file.renameTo(new File(path));
+			if(file.exists()){
+				file.delete();
+			}
+		}
+	}
+
+	public static boolean write2File(String path, String line, boolean append) {
+		//文件的续写
+		FileWriter fw = null;
+		try {
+			fw = new FileWriter(path, append);
+			//写入换行
+//			fw.write("\n");//Windows平台下用\r\n，Linux/Unix平台下用\n
+			//续写一个hello world!
+			fw.write(line + "\n");
+			fw.close();
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public static void removeEndLine(String filepath) {
+		try{
+			RandomAccessFile file = new RandomAccessFile(filepath, "rw");
+			long len = file.length();
+			long start = file.getFilePointer();
+			long nextend = start + len - 1;
+			file.seek(nextend);
+			byte[] buf = new byte[1];
+			while (nextend > start) {
+				file.read(buf, 0, 1);
+				if (buf[0] == '\r') {
+					file.setLength(nextend - start);
+					break;
+				}
+				nextend--;
+				file.seek(nextend);
+			}
+			file.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void rewriteEndLine(String filepath, String string) throws Exception {
+		removeEndLine(filepath);
+		writeEndLine(filepath, string);
+	}
+
+	public static void writeEndLine(String filepath, String string) throws Exception {
+		RandomAccessFile file = new RandomAccessFile(filepath, "rw");
+		long len = file.length();
+		long start = file.getFilePointer();
+		long nextEnd = start + len - 1;
+		byte[] buf = new byte[1];
+		file.seek(nextEnd);
+		file.read(buf, 0, 1);
+		if (buf[0] == '\n')
+			file.writeBytes(string);
+		else
+			file.writeBytes("\r\n"+string);
+		file.close();
+	}
+
+	public static List<String> readSource(String path) throws IOException{
+		return readSource(path,true);
+	}
+
+	public static List<String> readSource(String path,boolean skipFirstLine) throws IOException{
+
+		return readSource(path, skipFirstLine, "utf-8");
+	}
+
+	public static List<String> readSource(String path,boolean skipFirstLine,String encode) throws IOException{
+
+		File file = new File(path);
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),encode));
+		String line = null;
+
+		List<String> records = new ArrayList<String>();
+		if(skipFirstLine){
+			br.readLine();
+		}
+
+		while(null!=(line=br.readLine())){
+			records.add(line);
+		}
+		br.close();
+		return records;
+	}
+
+	public static String readLine(String path, boolean skipFirstLine, String encode, int lineIndex) throws IOException {
+		File file = new File(path);
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),encode));
+		String line;
+		String value = null;
+		int index = 0;
+		if(skipFirstLine){
+			value = br.readLine();
+			if (index == lineIndex) {
+				return value;
+			}
+			index++;
+		}
+
+		while(null != (line=br.readLine())){
+			value = line;
+			if (index == lineIndex) {
+				return value;
+			}
+			index++;
+		}
+		return value;
+	}
+
+	public static void splitFile(String filePath, String targetDirPath, int lineSize, String encode) throws IOException {
+		File file = new File(filePath);
+		if (file.isFile()) {
+			String name = file.getName();
+			int last = name.lastIndexOf(".");
+			String suffix = name.substring(last);
+			String prefix = name.substring(0, last) + "_";
+			long length = file.length();
+			if (length > 0) {
+				File dir = new File(targetDirPath);
+				if (!dir.exists()) {
+					dir.mkdirs();
+				}
+				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),encode));
+				String line;
+				int lineNum = 0;
+				int fileNum = 0;
+				String fileName = prefix + fileNum + suffix;
+				while ((line = br.readLine()) != null) {
+					write2File(targetDirPath + File.separator + fileName, line, true);
+					lineNum++;
+					if (lineNum >= lineSize) {
+						logger.info("file path: " + targetDirPath + ", name: " + fileName + ", line num: " + lineNum);
+						fileNum++;
+						lineNum = 0;
+						fileName = prefix + fileNum + suffix;
+					}
+				}
+				logger.info("file path: " + targetDirPath + ", name: " + fileName + ", line num: " + lineNum);
+			} else {
+				logger.warn(filePath + " isn't exist or is null.");
+			}
+		} else {
+			logger.warn(filePath + " isn't file.");
+		}
+	}
+
+
+	public static void main(String[] args) throws IOException {
+		FileUtil.splitFile("D:\\_com_project_info\\SEAGULL\\问题单-证据\\ho-schedule.log", "D:\\_com_project_info\\SEAGULL\\问题单-证据\\ho-schedule", 50000, "utf-8");
+	}
+
+}
