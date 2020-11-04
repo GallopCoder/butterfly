@@ -1,0 +1,9 @@
+com\artcode\artservice\common\utils\JsonMapper.class
+com\artcode\artservice\controller\ServiceController.class
+com\artcode\artservice\common\utils\JsonUtil.class
+com\artcode\artservice\entity\ServiceInfo.class
+com\artcode\artservice\ArtServiceApplication.class
+com\artcode\artservice\common\utils\CommUtil.class
+com\artcode\artservice\common\utils\JsonMapper$1.class
+com\artcode\artservice\entity\RestfulResult.class
+com\artcode\artservice\common\utils\JsonMapper$2.class

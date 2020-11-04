@@ -1,0 +1,7 @@
+spring:
+  application:
+    name : art-service
+  cloud:
+    config:
+      uri : http://localhost:6003/
+      profile : dev

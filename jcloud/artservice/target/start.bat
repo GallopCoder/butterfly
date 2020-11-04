@@ -1,0 +1,1 @@
+java -jar artservice-1.0-SNAPSHOT.jar

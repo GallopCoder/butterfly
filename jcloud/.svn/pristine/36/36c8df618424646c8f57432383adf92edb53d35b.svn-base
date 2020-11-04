@@ -1,0 +1,37 @@
+server:
+  port: 6003
+spring:
+  application:
+    name: art-config
+  profiles:
+    active: subversion
+  cloud:
+    config:
+      server:
+        svn:
+          #配置中心仓库地址
+          uri: https://svnserver/svn/hadoop/trunk/data-collection-group/zhangh/jcloud/config
+          #username: *****
+          #password: *****
+          default-label:
+
+eureka:
+  client:
+    serviceUrl:
+      #注册中心服务器地址
+      defaultZone: http://localhost:8761/eureka/
+    #是否将自己注册到注册中心(Eureka)
+    register-with-eureka: true
+    #是否需要搜索服务信息
+    fetch-registry: true
+  instance:
+    #使用ip地址注册到注册中心
+    preferIpAddress: true
+    #注册中心列表中显示的状态参数
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance
+    #该值至少应该大于leaseRenewalIntervalInSeconds
+    lease-expiration-duration-in-seconds: 30
+    #表示eureka client发送心跳给server端的频率。
+    #如果在leaseExpirationDurationInSeconds后，server端没有收到client的心跳，则将摘除该instance
+    lease-renewal-interval-in-seconds: 30

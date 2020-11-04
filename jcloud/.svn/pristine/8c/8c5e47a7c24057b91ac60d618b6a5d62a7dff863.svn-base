@@ -1,0 +1,17 @@
+spring:
+  application:
+    name : art-zuul
+
+server:
+  port : 6005
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    sbService :
+      path : /sbService/**
+      serviceId : art-service
