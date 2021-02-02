@@ -1,5 +1,6 @@
 package com.ali.retail.utils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,50 +13,6 @@ public class FileUtil {
 
 	private static final Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
-	public static void write2File(String path,String content,String encode,boolean append) throws IOException{
-		String fileName = path.substring(path.lastIndexOf(File.separator)+1);
-		String filePath = path.substring(0,path.lastIndexOf(File.separator));
-		String tempFileName = "_"+fileName;
-		File file = new File(append?path:(filePath+File.separator+tempFileName));
-		file.getParentFile().mkdirs();
-		if(!file.exists()){
-			file.createNewFile();
-		}
-		BufferedWriter bw = null;
-		try{
-			bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,append),encode));
-			bw.append(content).append("\n");
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			if(null!=bw){
-				bw.close();
-			}
-		}
-		if(file.exists()&&!append){
-			File destFile = new File(path);
-			if(destFile.exists()){
-				try{
-					destFile.delete();
-				}catch(Throwable e){
-					try {
-						Thread.sleep(10000);
-					} catch (InterruptedException e1) {
-						e.printStackTrace();
-					}
-					try{
-						destFile.delete();
-					}catch(Throwable e1){
-						e.printStackTrace();
-					}
-				}
-			}
-			file.renameTo(new File(path));
-			if(file.exists()){
-				file.delete();
-			}
-		}
-	}
 
 	public static boolean write2File(String path, String line, boolean append) {
 		//文件的续写
@@ -119,10 +76,10 @@ public class FileUtil {
 	}
 
 	public static List<String> readSource(String path) throws IOException{
-		return readSource(path,true);
+		return readSource(path, true);
 	}
 
-	public static List<String> readSource(String path,boolean skipFirstLine) throws IOException{
+	public static List<String> readSource(String path, boolean skipFirstLine) throws IOException{
 
 		return readSource(path, skipFirstLine, "utf-8");
 	}
@@ -171,15 +128,15 @@ public class FileUtil {
 		return value;
 	}
 
-	public static void splitFile(String filePath, String targetDirPath, int lineSize, String encode) throws IOException {
-		File file = new File(filePath);
+	public static void splitFile(String path, String name, int lineSize, String encode) throws IOException {
+		File file = new File(path + File.separator + name);
+		String filePath = file.getPath();
 		if (file.isFile()) {
-			String name = file.getName();
 			int last = name.lastIndexOf(".");
 			String suffix = name.substring(last);
 			String prefix = name.substring(0, last) + "_";
-			long length = file.length();
-			if (length > 0) {
+			String targetDirPath =  path + File.separator +  name.substring(0, last);
+			if (file.length() > 0) {
 				File dir = new File(targetDirPath);
 				if (!dir.exists()) {
 					dir.mkdirs();
@@ -189,28 +146,40 @@ public class FileUtil {
 				int lineNum = 0;
 				int fileNum = 0;
 				String fileName = prefix + fileNum + suffix;
-				while ((line = br.readLine()) != null) {
-					write2File(targetDirPath + File.separator + fileName, line, true);
-					lineNum++;
-					if (lineNum >= lineSize) {
-						logger.info("file path: " + targetDirPath + ", name: " + fileName + ", line num: " + lineNum);
-						fileNum++;
-						lineNum = 0;
-						fileName = prefix + fileNum + suffix;
+				FileWriter fw = null;
+				try {
+					fw = new FileWriter(targetDirPath + File.separator + fileName, true);
+					while ((line = br.readLine()) != null) {
+						fw.write(line + "\n");
+						lineNum++;
+						if (lineNum >= lineSize) {
+							logger.info("file path: " + targetDirPath + ", name: " + fileName + ", line num: " + lineNum);
+							fileNum++;
+							lineNum = 0;
+							fileName = prefix + fileNum + suffix;
+							fw.close();
+							fw = new FileWriter(targetDirPath + File.separator + fileName, true);
+						}
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					if (fw != null) {
+						fw.close();
 					}
 				}
 				logger.info("file path: " + targetDirPath + ", name: " + fileName + ", line num: " + lineNum);
 			} else {
-				logger.warn(filePath + " isn't exist or is null.");
+				logger.warn(path + " isn't exist or is null.");
 			}
 		} else {
-			logger.warn(filePath + " isn't file.");
+			logger.warn(path + " isn't a file.");
 		}
 	}
 
 
 	public static void main(String[] args) throws IOException {
-		FileUtil.splitFile("D:\\_com_project_info\\SEAGULL\\问题单-证据\\icontroler_20201019.log", "D:\\_com_project_info\\SEAGULL\\问题单-证据\\icontroler", 50000, "utf-8");
+		FileUtil.splitFile("D:\\_com_project_info\\SEAGULL\\问题单-证据\\ho-schedule\\", "ho-schedule-01-23.log", 250000, "utf-8");
 	}
 
 }
